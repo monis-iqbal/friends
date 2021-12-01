@@ -1,0 +1,39 @@
+.site-page-header {
+
+    text-align: center;
+    font-size: 40px;
+    padding-left: 10px;
+    padding-top: 20px;
+    height: 60px;
+    font-family: Garamond, serif;;
+    color:rgb(98, 72, 247);
+
+  }
+
+
+  .form-div{
+      margin: 100px auto auto auto;
+      padding: 15px 5px 5px 5px;
+      height: 350px;
+      width: 400px;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0px 0px 10px #353434;
+      border-radius: 8px;
+    
+  }
+  .form-div-signup{
+    margin: 100px auto auto auto;
+    padding: 15px 5px 5px 5px;
+    height: 400px;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px #353434;
+    border-radius: 8px;
+  }
+
+  .form-name{
+      color: rgb(9, 9, 121);
+      text-decoration: underline;
+      margin-bottom: 28px;
+      text-align: center;
+  }
