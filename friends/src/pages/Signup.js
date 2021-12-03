@@ -4,8 +4,8 @@ import './Form.css';
 import { Form, Input, Button, Checkbox } from 'antd';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import { auth, createUserWithEmailAndPassword } from "./Firebase/Firebase";
-import {links} from reactDom
-import reactDom from "react-dom";
+import { NavLink } from "react-router-dom";
+
 
 
 const Signup = () => {
@@ -105,8 +105,10 @@ const Signup = () => {
                     <Button type="primary" htmlType="submit">
                         Signup
                     </Button>
-                    <p>Already have account <link></link></p>
+                    
                 </Form.Item>
+                <div className="Nav_links_ajdust">Already have Account<NavLink exact activeClassName="Nav_links" to="/login"
+                         > Click Here</NavLink> </div>
             </Form>
            </div>
              </>
