@@ -3,23 +3,23 @@ import { PageHeader } from 'antd';
 import './Form.css';
 import { Form, Input, Button, Checkbox } from 'antd';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import { NavLink, navigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+import Header from "./Componenets/Header";
 
 const Login = () => {
     let email = '';
     let password = '';
     const onFinish = (values) => {
         console.log('Success:', values);
-        email=values.email;
-        password=values.password;
+        email = values.email;
+        password = values.password;
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user)
-                navigate('/home')
+
                 // ...
             })
             .catch((error) => {
@@ -38,7 +38,7 @@ const Login = () => {
     return (
 
         <>
-            <header className="site-page-header">Friends</header>
+            <Header />
 
             <div className="form-div">
                 <h1 className="form-name" >LogIn Form</h1>

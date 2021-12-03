@@ -3,23 +3,33 @@ import { PageHeader } from 'antd';
 import './Form.css';
 import { Form, Input, Button, Checkbox } from 'antd';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import { auth, createUserWithEmailAndPassword } from "./Firebase/Firebase";
+import { auth, createUserWithEmailAndPassword, db, setDoc, doc} from "./Firebase/Firebase";
 import { NavLink } from "react-router-dom";
+import Header from "./Componenets/Header";
 
 
 
 const Signup = () => {
     let email = '';
     let password = '';
+    let username = "";
     const onFinish = (values) => {
         console.log('Success:', values);
         email=values.email;
         password=values.password;
+        username=values.username
         createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
     console.log(user) 
+    let dataRef = doc(db, 'users', user.uid)
+             setDoc(dataRef, {
+                email:email,
+                username: username,
+                uid: user.uid
+            });
+    
     // ...
   })
   .catch((error) => {
@@ -37,7 +47,7 @@ const Signup = () => {
     return (
 
         <>
-        <header className="site-page-header">Friends</header>
+        <Header />
 
            <div className="form-div-signup">
             <h1 className="form-name" >Signup Form</h1>
@@ -59,7 +69,7 @@ const Signup = () => {
             >
                 <Form.Item
                     label="Username"
-                    name="Username"
+                    name="username"
                     rules={[
                         {
                             required: true,
